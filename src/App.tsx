@@ -4,6 +4,8 @@ import { BrowserRouter } from 'react-router-dom'
 import Hero from './components/sections/Hero'
 import Skills from './components/sections/Skills'
 import Projects from './components/sections/Projects'
+import Contact from './components/sections/Contact'
+import ScrollToTop from './components/others/ScrollToTop'
 
 const darkTheme = createTheme({
   palette: {
@@ -20,6 +22,8 @@ function App() {
           <Hero />
           <Skills />
           <Projects />
+          <Contact />
+          <ScrollToTop />
         </div>
       </BrowserRouter>
     </ThemeProvider>

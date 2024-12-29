@@ -124,6 +124,7 @@ const Hero = () => {
             <Button
               variant="outlined"
               size="large"
+              onClick={() => scrollToSection('contact')}
               sx={{
                 borderColor: '#FE6B8B',
                 color: '#FE6B8B',
