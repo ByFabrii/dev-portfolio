@@ -7,6 +7,8 @@ import Projects from './components/sections/Projects'
 import Contact from './components/sections/Contact'
 import ScrollToTop from './components/others/ScrollToTop'
 import About from './components/sections/About'
+import Footer from './components/sections/Footer'
+import Experience from './components/sections/Experience'
 
 const darkTheme = createTheme({
   palette: {
@@ -25,7 +27,9 @@ function App() {
           <Projects />
           <About />
           <Contact />
+          <Experience />
           <ScrollToTop />
+          <Footer />
         </div>
       </BrowserRouter>
     </ThemeProvider>

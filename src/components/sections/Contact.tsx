@@ -9,9 +9,10 @@ const Contact = () => {
             component="section"
             id="contact"
             sx={{
-                minHeight: '100vh',
+                minHeight: 'auto', // Changed from 100vh
                 display: 'flex',
                 alignItems: 'center',
+                pb: 12, // Reduced padding
             }}
         >
             <Box maxWidth="lg" sx={{ mx: 'auto', px: 3 }}>
