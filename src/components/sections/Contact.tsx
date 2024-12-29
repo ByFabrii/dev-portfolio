@@ -17,9 +17,10 @@ const Contact = () => {
         >
             <Box maxWidth="lg" sx={{ mx: 'auto', px: 3 }}>
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                    viewport={{ once: true }}
                 >
                     <Typography
                         variant="h2"

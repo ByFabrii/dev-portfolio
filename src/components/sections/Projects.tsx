@@ -46,8 +46,9 @@ const Projects = () => {
             >
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
                 >
                     <Typography
                         variant="h2"
@@ -85,10 +86,10 @@ const Projects = () => {
                                 }}
                             >
                                 <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                                    style={{ width: '100%' }}
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: index * 0.2 }}
+                                    viewport={{ once: true }}
                                 >
                                     <Card
                                         sx={{

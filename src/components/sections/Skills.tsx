@@ -120,8 +120,9 @@ const Skills = () => {
             <Box maxWidth="lg" sx={{ mx: 'auto', px: 3 }}>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
+                    viewport={{ once: true }}
                 >
                     <Typography
                         variant="h2"
@@ -140,12 +141,13 @@ const Skills = () => {
 
                     <Grid container spacing={4}>
                         {skillCategories.map((category, index) => (
-                            <Grid item xs={12} md={3} key={category.title}>
-                                <motion.div
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.8, delay: index * 0.2 }}
-                                >
+                        <Grid item xs={12} md={3} key={category.title}>
+                            <motion.div
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5, delay: index * 0.2 }}
+                            viewport={{ once: true }}
+                            >
                                     <Paper
                                         elevation={3}
                                         sx={{
