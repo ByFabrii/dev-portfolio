@@ -6,7 +6,6 @@ import BackgroundCanvas from '../others/BackgroundCanvas'
 const roles = [
   "Full Stack Developer",
   "Web Designer",
-  "UI/UX Engineer",
   "React Developer"
 ]
 
@@ -16,7 +15,7 @@ const Hero = () => {
   const [isDeleting, setIsDeleting] = useState(false)
 
   useEffect(() => {
-    const typingSpeed = isDeleting ? 50 : 150
+    const typingSpeed = isDeleting ? 40 : 100
     const currentRole = roles[roleIndex]
 
     if (!isDeleting && displayText === currentRole) {

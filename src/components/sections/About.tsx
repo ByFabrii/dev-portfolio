@@ -18,7 +18,7 @@ const About = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center', // Add this
-        pb: 12,
+        
       }}
     >
       <Box maxWidth="lg" sx={{ mx: 'auto', px: 3 }}>
