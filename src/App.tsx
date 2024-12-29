@@ -6,6 +6,7 @@ import Skills from './components/sections/Skills'
 import Projects from './components/sections/Projects'
 import Contact from './components/sections/Contact'
 import ScrollToTop from './components/others/ScrollToTop'
+import About from './components/sections/About'
 
 const darkTheme = createTheme({
   palette: {
@@ -22,6 +23,7 @@ function App() {
           <Hero />
           <Skills />
           <Projects />
+          <About />
           <Contact />
           <ScrollToTop />
         </div>

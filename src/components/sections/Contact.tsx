@@ -12,7 +12,6 @@ const Contact = () => {
                 minHeight: '100vh',
                 display: 'flex',
                 alignItems: 'center',
-                py: 8
             }}
         >
             <Box maxWidth="lg" sx={{ mx: 'auto', px: 3 }}>
