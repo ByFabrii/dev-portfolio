@@ -2,7 +2,7 @@ import { Box, Typography, Grid, Card, CardContent, CardMedia, CardActions, Butto
 import { GitHub, Launch } from '@mui/icons-material'
 import { motion } from 'framer-motion'
 import PokedexImage from '../../assets/pokedex.png'
-import GuitarLAImage from '../../assets/guitarla.png'
+import GuitarLAImage from '../../assets/guitarLA.png'
 
 const projects = [
     {
