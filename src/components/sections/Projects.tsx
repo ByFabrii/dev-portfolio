@@ -34,7 +34,7 @@ const Projects = () => {
                 display: 'flex',
                 alignItems: 'center',
                 py: 12,
-                px: { xs: 2, sm: 4, md: 6 }
+                px: { xs: 2, sm: 4, md: 20 }
             }}
         >
             <Box 
