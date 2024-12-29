@@ -1,4 +1,4 @@
-import { Box, Typography, Container, Grid, Paper, Chip, Stack } from '@mui/material';
+import { Box, Typography, Grid, Paper, Chip, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Code, School, Work } from '@mui/icons-material';
 
@@ -14,18 +14,16 @@ const About = () => {
       component="section"
       id="about"
       sx={{
-        minHeight: '100vh',
+        minHeight: 'auto',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center',
-        position: 'relative',
-        overflow: 'hidden',
+        justifyContent: 'center', // Add this
+        pb: 12,
       }}
     >
-      <Container maxWidth="lg">
-        <Grid container spacing={1} alignItems="center">
-          
-          <Grid item xs={12} md={12}>
+      <Box maxWidth="lg" sx={{ mx: 'auto', px: 3 }}>
+        <Grid container spacing={1} justifyContent="center">
+          <Grid item xs={12} md={6}>
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -40,8 +38,9 @@ const About = () => {
                   background: 'linear-gradient(45deg, #FF8E53 30%, #FE6B8B 90%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
-                  mb: 4
-                }}
+                  mb: 6,
+                  textAlign: 'center'
+              }}
               >
                 About Me
               </Typography>
@@ -83,7 +82,7 @@ const About = () => {
             </motion.div>
           </Grid>
         </Grid>
-      </Container>
+      </Box>
     </Box>
   );
 };
