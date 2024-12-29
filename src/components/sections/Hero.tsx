@@ -18,12 +18,12 @@ const Hero = () => {
   useEffect(() => {
     const typingSpeed = isDeleting ? 50 : 150
     const currentRole = roles[roleIndex]
-    
+
     if (!isDeleting && displayText === currentRole) {
       setTimeout(() => setIsDeleting(true), 2000)
       return
     }
-    
+
     if (isDeleting && displayText === '') {
       setIsDeleting(false)
       setRoleIndex((prev) => (prev + 1) % roles.length)
@@ -31,8 +31,8 @@ const Hero = () => {
     }
 
     const timeout = setTimeout(() => {
-      setDisplayText(prev => 
-        isDeleting 
+      setDisplayText(prev =>
+        isDeleting
           ? prev.slice(0, -1)
           : currentRole.slice(0, prev.length + 1)
       )
@@ -40,6 +40,20 @@ const Hero = () => {
 
     return () => clearTimeout(timeout)
   }, [displayText, isDeleting, roleIndex])
+
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      const offset = -40; // Adjust this value based on your header height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
     <Box
@@ -77,9 +91,9 @@ const Hero = () => {
             animate={{ opacity: [0.5, 1] }}
             transition={{ duration: 0.3 }}
           >
-            <Typography 
-              variant="h2" 
-              sx={{ 
+            <Typography
+              variant="h2"
+              sx={{
                 fontSize: { xs: '1.5rem', md: '2.5rem' },
                 color: 'text.secondary',
                 mb: 4,
@@ -92,21 +106,22 @@ const Hero = () => {
             </Typography>
           </motion.div>
           <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>
-            <Button 
+            <Button
               variant="contained"
               size="large"
+              onClick={() => scrollToSection('projects')}
               sx={{
                 background: 'linear-gradient(45deg, #FF8E53 30%, #FE6B8B 90%)',
                 '&:hover': {
                   transform: 'translateY(-2px)',
                   boxShadow: '0 8px 16px rgba(254, 107, 139, 0.3)',
                 },
-                transition: 'all 0.2s'
+                transition: 'transform 0.3s ease-out, box-shadow 0.3s ease-out'
               }}
             >
               View Projects
             </Button>
-            <Button 
+            <Button
               variant="outlined"
               size="large"
               sx={{
