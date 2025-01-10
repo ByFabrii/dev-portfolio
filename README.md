@@ -63,7 +63,7 @@ npm run dev
 - Efficient state management
 
 ## Contact 📫
-- Portfolio: fabrizziodev.com
+- Portfolio: https://fabrizziodev.com/
 - GitHub: @ByFabrii
 - LinkedIn: Fabrizzio Carbonell
 
