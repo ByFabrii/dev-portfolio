@@ -6,7 +6,7 @@ const About = () => {
   const highlights = [
     { icon: <Code />, label: "Full Stack Developer" },
     { icon: <School />, label: "Teleinformatics Engineer" },
-    { icon: <Work />, label: "3+ Years Experience" },
+    { icon: <Work />, label: "4+ Years Experience" },
   ];
 
   return (
@@ -75,7 +75,7 @@ const About = () => {
                 }}
               >
                 <Typography variant="body1" sx={{ mb: 2, color: 'text.secondary' }}>
-                  Actually i'm working as a Full Stack Developer at my own company called Malta Digital Agency, i have been working with web development for 3 years now, i have experience with React, PHP as Backend and Frontend Technology, Node.js, Express, MySQL, PostgreSQL, and other technologies like testing and design.
+                  I'm currenty working as a Full Stack Developer at my own company called Malta Digital Agency, i have been working with web development for 4 years now, i have experience with React, PHP as Backend and Frontend Technology, Node.js, Express, MySQL, PostgreSQL, and other technologies like testing and design.
                   <br /> <br />Im also a professional QA engineer with almost 1 year of experience, i have worked with automation testing, manual testing, and performance testing. I have experience with tools like Selenium, RestAssured, Postman, JAVA and Kotlin using InteliJ as the IDE.
                 </Typography>
               </Paper>

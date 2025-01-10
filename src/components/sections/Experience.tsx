@@ -8,7 +8,7 @@ const Experience = () => {
     {
       title: "PHP Developer",
       company: "Malta Digital Agency",
-      period: "2018 - present",
+      period: "2020 - present",
       description: "Leading development of web applications using HTML, CSS, JS, PHP and MySQL",
     },
     {
