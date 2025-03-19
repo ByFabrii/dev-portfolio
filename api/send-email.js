@@ -109,7 +109,7 @@ export default async function handler(req, res) {
     }
 
     const data = await resend.emails.send({
-      from: 'Portfolio Contact Form <onboarding@resend.dev>',
+      from: 'Portfolio Contact Form <formulario@fabrizziodev.com>',
       to: 'contacto@fabrizziodev.com',
       subject: `Portfolio Contact: ${name}`,
       reply_to: email,
@@ -127,18 +127,3 @@ export default async function handler(req, res) {
     });
   }
 }
-
-// Función para verificar reCAPTCHA (implementación básica)
-// async function verifyRecaptcha(token) {
-//   try {
-//     const response = await fetch('https://www.google.com/recaptcha/api/siteverify', {
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-//       body: `secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`
-//     });
-//     return await response.json();
-//   } catch (error) {
-//     console.error('reCAPTCHA verification error:', error);
-//     return { success: false };
-//   }
-// }
