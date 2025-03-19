@@ -10,6 +10,7 @@ import {
     SiExpress, SiAdobeillustrator,
     SiCanva
 } from 'react-icons/si'
+import SectionTitle from '../common/SectionTitle';
 
   type IconColorType = {
     [key: string]: string;
@@ -110,6 +111,7 @@ const Skills = () => {
     return (
         <Box
             component="section"
+            id="skills"
             sx={{
                 minHeight: '100vh',
                 display: 'flex',
@@ -124,20 +126,7 @@ const Skills = () => {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                 >
-                    <Typography
-                        variant="h2"
-                        sx={{
-                            fontSize: { xs: '2.5rem', md: '3.5rem' },
-                            fontWeight: 'bold',
-                            background: 'linear-gradient(45deg, #FF8E53 30%, #FE6B8B 90%)',
-                            WebkitBackgroundClip: 'text',
-                            WebkitTextFillColor: 'transparent',
-                            mb: 6,
-                            textAlign: 'center'
-                        }}
-                    >
-                        Skills & Expertise
-                    </Typography>
+                    <SectionTitle title="Skills & Expertise" />
 
                     <Grid container spacing={4}>
                         {skillCategories.map((category, index) => (

@@ -15,17 +15,21 @@
     "@mui/icons-material": "^6.3.0",
     "@mui/lab": "^6.0.0-beta.21",
     "@mui/material": "^6.3.0",
+    "@react-email/components": "^0.0.34",
     "dev-portfolio": "file:",
     "framer-motion": "^11.15.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.4.0",
-    "react-router-dom": "^7.1.1"
+    "react-lazy-load-image-component": "^1.6.3",
+    "react-router-dom": "^7.1.1",
+    "resend": "^4.1.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",
+    "@types/react-lazy-load-image-component": "^1.6.4",
     "@types/react-router-dom": "^5.3.3",
     "@vitejs/plugin-react": "^4.3.4",
     "eslint": "^9.17.0",

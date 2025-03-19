@@ -57,6 +57,7 @@ const Hero = () => {
   return (
     <Box
       component="section"
+      id="root"
       sx={{
         minHeight: '100vh',
         display: 'flex',

@@ -9,6 +9,7 @@ import ScrollToTop from './components/others/ScrollToTop'
 import About from './components/sections/About'
 import Footer from './components/sections/Footer'
 import Experience from './components/sections/Experience'
+import Navbar from './components/navigation/Navbar'
 
 const darkTheme = createTheme({
   palette: {
@@ -22,12 +23,13 @@ function App() {
       <CssBaseline />
       <BrowserRouter>
         <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black">
+          <Navbar />
           <Hero />
           <Skills />
           <Projects />
+          <Experience />
           <About />
           <Contact />
-          <Experience />
           <ScrollToTop />
           <Footer />
         </div>

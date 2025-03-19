@@ -3,6 +3,7 @@ import { GitHub, Launch } from '@mui/icons-material'
 import { motion } from 'framer-motion'
 import PokedexImage from '../../assets/pokedex.png'
 import GuitarLAImage from '../../assets/guitarLA.png'
+import SectionTitle from '../common/SectionTitle'
 
 const projects = [
     {
@@ -50,20 +51,7 @@ const Projects = () => {
                     transition={{ duration: 0.8 }}
                     viewport={{ once: true }}
                 >
-                    <Typography
-                        variant="h2"
-                        sx={{
-                            fontSize: { xs: '2.5rem', md: '3.5rem' },
-                            fontWeight: 'bold',
-                            background: 'linear-gradient(45deg, #FF8E53 30%, #FE6B8B 90%)',
-                            WebkitBackgroundClip: 'text',
-                            WebkitTextFillColor: 'transparent',
-                            mb: 6,
-                            textAlign: 'center'
-                        }}
-                    >
-                        My Projects
-                    </Typography>
+                    <SectionTitle title="My Projects" />
 
                     <Grid 
                         container 

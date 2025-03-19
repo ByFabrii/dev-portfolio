@@ -2,6 +2,7 @@ import { Box, Container, Typography } from '@mui/material';
 import { TimelineItem, Timeline, TimelineSeparator, TimelineConnector, TimelineContent, TimelineDot } from '@mui/lab';
 import { motion } from 'framer-motion';
 import { Work } from '@mui/icons-material';
+import SectionTitle from '../common/SectionTitle';
 
 const Experience = () => {
   const experiences = [
@@ -49,20 +50,7 @@ const Experience = () => {
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
       >
-          <Typography
-            variant="h2"
-            sx={{
-              fontSize: { xs: '2.5rem', md: '3.5rem' },
-              fontWeight: 'bold',
-              background: 'linear-gradient(45deg, #FF8E53 30%, #FE6B8B 90%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              mb: 6,
-              textAlign: 'center'
-            }}
-          >
-            Experience
-          </Typography>
+          <SectionTitle title="Experience" />
 
           <Timeline position="alternate">
             {experiences.map((exp, index) => (

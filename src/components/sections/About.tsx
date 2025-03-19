@@ -1,6 +1,7 @@
 import { Box, Typography, Grid, Paper, Chip, Stack } from '@mui/material';
 import { motion } from 'framer-motion';
 import { Code, School, Work } from '@mui/icons-material';
+import SectionTitle from '../common/SectionTitle';
 
 const About = () => {
   const highlights = [
@@ -30,20 +31,7 @@ const About = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              <Typography
-                variant="h2"
-                sx={{
-                  fontSize: { xs: '2.5rem', md: '3.5rem' },
-                  fontWeight: 'bold',
-                  background: 'linear-gradient(45deg, #FF8E53 30%, #FE6B8B 90%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  mb: 6,
-                  textAlign: 'center'
-              }}
-              >
-                About Me
-              </Typography>
+              <SectionTitle title="About me" />
 
               <Stack direction="row" spacing={2} flexWrap="wrap" sx={{ mb: 4 }}>
                 {highlights.map((item, index) => (

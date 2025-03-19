@@ -1,4 +1,4 @@
-import { useEffect, useRef, ReactNode } from 'react'
+import { useEffect, useRef, ReactNode, useState } from 'react'
 import { Container } from '@mui/material'
 
 interface BackgroundCanvasProps {
@@ -22,12 +22,40 @@ const BackgroundCanvas = ({ children, maxWidth }: BackgroundCanvasProps) => {
     const nebulaClouds = useRef<Array<{ x: number, y: number, radius: number, color: string, angle: number, speed: number }>>([])
     const hue = useRef(0)
     const animationFrameId = useRef<number>()
+    const [devicePerformance, setDevicePerformance] = useState<'low'|'medium'|'high'>('medium')
 
     useEffect(() => {
+        // Detección de rendimiento del dispositivo
+        const detectPerformance = () => {
+            // Usar hardware concurrency como aproximación de capacidad
+            const cores = navigator.hardwareConcurrency || 4
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+            
+            if (isMobile && cores <= 4) {
+                return 'low'
+            } else if (cores >= 8) {
+                return 'high'
+            } 
+            return 'medium'
+        }
+        
+        setDevicePerformance(detectPerformance())
+
         const canvas = canvasRef.current
         if (!canvas) return
         const ctx = canvas.getContext('2d')
         if (!ctx) return
+
+        // Ajustes basados en rendimiento
+        const starCount = devicePerformance === 'low' ? 50 : 
+                          devicePerformance === 'medium' ? 100 : 150
+        
+        const nebulaCloudCount = devicePerformance === 'low' ? 2 : 
+                                devicePerformance === 'medium' ? 3 : 5
+        
+        // Skip frames en dispositivos de bajo rendimiento
+        let frameCount = 0
+        const frameSkip = devicePerformance === 'low' ? 2 : 1
 
         const resizeCanvas = () => {
             canvas.width = window.innerWidth
@@ -38,7 +66,7 @@ const BackgroundCanvas = ({ children, maxWidth }: BackgroundCanvasProps) => {
 
         const createStars = () => {
             const stars: Star[] = []
-            for (let i = 0; i < 200; i++) {
+            for (let i = 0; i < starCount; i++) {
                 stars.push({
                     x: Math.random() * window.innerWidth,
                     y: Math.random() * window.innerHeight,
@@ -52,7 +80,7 @@ const BackgroundCanvas = ({ children, maxWidth }: BackgroundCanvasProps) => {
         }
 
         const createNebulaClouds = () => {
-            nebulaClouds.current = Array(5).fill(null).map(() => ({
+            nebulaClouds.current = Array(nebulaCloudCount).fill(null).map(() => ({
                 x: Math.random() * canvas.width,
                 y: Math.random() * canvas.height,
                 radius: Math.random() * 200 + 100,
@@ -230,6 +258,12 @@ const BackgroundCanvas = ({ children, maxWidth }: BackgroundCanvasProps) => {
         }
 
         const animate = (time: number) => {
+            frameCount++
+            if (devicePerformance === 'low' && frameCount % frameSkip !== 0) {
+                animationFrameId.current = requestAnimationFrame(animate)
+                return
+            }
+            
             ctx.clearRect(0, 0, canvas.width, canvas.height)
             drawBackground()
             drawStars()
@@ -250,14 +284,31 @@ const BackgroundCanvas = ({ children, maxWidth }: BackgroundCanvasProps) => {
         resizeCanvas()
         animate(0)
 
+        // Detener animación cuando no es visible
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (!animationFrameId.current) return
+                
+                if (!entry.isIntersecting) {
+                    cancelAnimationFrame(animationFrameId.current)
+                    animationFrameId.current = undefined
+                } else if (!animationFrameId.current) {
+                    animationFrameId.current = requestAnimationFrame(animate)
+                }
+            })
+        }, { threshold: 0.1 })
+        
+        observer.observe(canvas)
+
         return () => {
             window.removeEventListener('resize', resizeCanvas)
             window.removeEventListener('mousemove', handleMouseMove)
             if (animationFrameId.current) {
                 cancelAnimationFrame(animationFrameId.current)
             }
+            observer.disconnect()
         }
-    }, [])
+    }, [devicePerformance])
 
     return (
         <>
