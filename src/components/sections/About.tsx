@@ -64,7 +64,7 @@ const About = () => {
               >
                 <Typography variant="body1" sx={{ mb: 2, color: 'text.secondary' }}>
                 I am currently working as a Full Stack Developer at my own company, Malta Digital Agency. I have been involved in web development for 4 years, with experience in technologies such as React, PHP (for both backend and frontend), Node.js, Express, MySQL, PostgreSQL, and other tools related to testing and design.
-                  <br /> <br />In addition, I am a professional QA engineer with nearly 1 year of experience. My expertise includes automation testing, manual testing, and performance testing. I am proficient with tools like Selenium, RestAssured, and Postman, as well as programming languages such as Java and Kotlin, using IntelliJ as my primary IDE.
+                  <br /> <br />In addition, I am a professional QA engineer with over than 1 year of experience. My expertise includes automation testing, manual testing, and performance testing. I am proficient with tools like Playwright, RestAssured, and Postman, as well as programming languages such as Java and Kotlin, using IntelliJ as my primary IDE.
                 </Typography>
               </Paper>
             </motion.div>

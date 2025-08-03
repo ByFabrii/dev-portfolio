@@ -3,6 +3,7 @@ import { GitHub, Launch } from '@mui/icons-material'
 import { motion } from 'framer-motion'
 import PokedexImage from '../../assets/pokedex.png'
 import GuitarLAImage from '../../assets/guitarLA.png'
+import RestImage from '../../assets/Rest.png'
 import SectionTitle from '../common/SectionTitle'
 
 const projects = [
@@ -21,6 +22,14 @@ const projects = [
         technologies: ["React", "Typescript", "Material-UI"],
         demoLink: "https://guitar-shop-virid-pi.vercel.app/",
         codeLink: "https://github.com/ByFabrii/guitarShop"
+    },
+    {
+        title: "Multi language Restaurant Page Sample",
+        description: "Multi language Restaurant Page Sample is a page made with React and Typescript just to practice the multi language pages with full support to add more languages using simple JSON.",
+        image: RestImage,
+        technologies: ["React", "Typescript", "Tailwind CSS"],
+        demoLink: "https://rest-template-ruby.vercel.app/",
+        codeLink: "https://github.com/ByFabrii/restTemplate"
     },
     // Add more projects here
 ]
