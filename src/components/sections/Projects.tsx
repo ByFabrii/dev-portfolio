@@ -3,6 +3,8 @@ import { GitHub, Launch } from '@mui/icons-material'
 import { motion } from 'framer-motion'
 import PokedexImage from '../../assets/pokedex.png'
 import GuitarLAImage from '../../assets/guitarLA.png'
+import proof from '../../assets/proof.png'
+import restaurant from '../../assets/restaurant.png'
 import SectionTitle from '../common/SectionTitle'
 
 const projects = [
@@ -22,6 +24,22 @@ const projects = [
         demoLink: "https://guitar-shop-virid-pi.vercel.app/",
         codeLink: "https://github.com/ByFabrii/guitarShop"
     },
+    {
+        title: "Absence Justification System for UDG",
+        description: "Absence justification system for the Centro Universitario de la Costa Sur, built with PHP and MySQL as database, with customized views for different types of users such as Students, Coordinators and Administrators.",
+        image: proof,
+        technologies: ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
+        demoLink: "https://www.instagram.com/reel/DPA4KcOgAcU/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==",
+        codeLink: null
+    },
+    {
+        title: "Restaurant Web Page Template",
+        description: "It's a specialized base template for restaurants that is part of a broader ecosystem that allows creating customized websites for different business niches. It also has a system of internationalization that allows changing languages.",
+        image: restaurant,
+        technologies: ["React", "Typescript", "Vite", "Tailwind CSS", "Framer Motion", "Lucide React", "i18Next"],
+        demoLink: "https://rest-template-ruby.vercel.app/",
+        codeLink: "https://github.com/ByFabrii/restTemplate"
+    },
     // Add more projects here
 ]
 
@@ -38,9 +56,9 @@ const Projects = () => {
                 px: { xs: 2, sm: 4, md: 20 }
             }}
         >
-            <Box 
-                maxWidth="xl" 
-                sx={{ 
+            <Box
+                maxWidth="xl"
+                sx={{
                     width: '100%',
                     mx: 'auto'
                 }}
@@ -53,8 +71,8 @@ const Projects = () => {
                 >
                     <SectionTitle title="My Projects" />
 
-                    <Grid 
-                        container 
+                    <Grid
+                        container
                         spacing={{ xs: 2, sm: 3, md: 4 }}
                         sx={{
                             display: 'flex',
@@ -63,11 +81,11 @@ const Projects = () => {
                         }}
                     >
                         {projects.map((project, index) => (
-                            <Grid 
-                                item 
-                                xs={12} 
-                                sm={6} 
-                                md={4} 
+                            <Grid
+                                item
+                                xs={12}
+                                sm={6}
+                                md={4}
                                 key={project.title}
                                 sx={{
                                     display: 'flex'
@@ -125,46 +143,51 @@ const Projects = () => {
                                             </Box>
                                         </CardContent>
                                         <CardActions sx={{ p: 3, pt: 0 }}>
-                                            <Button
-                                                size="medium"
-                                                href={project.demoLink}
-                                                target="_blank"
-                                                variant="contained"
-                                                startIcon={<Launch />}
-                                                sx={{
-                                                    background: 'linear-gradient(45deg, #FF8E53 30%, #FE6B8B 90%)',
-                                                    color: 'white',
-                                                    px: 2,
-                                                    '&:hover': {
-                                                        background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-                                                        transform: 'scale(1.05)',
-                                                        transition: 'transform 0.2s',
-                                                    }
-                                                }}
-                                            >
-                                                Live Demo
-                                            </Button>
-                                            <Button
-                                                size="medium"
-                                                href={project.codeLink}
-                                                target="_blank"
-                                                variant="outlined"
-                                                startIcon={<GitHub />}
-                                                sx={{
-                                                    borderColor: '#FF8E53',
-                                                    color: '#FF8E53',
-                                                    px: 2,
-                                                    '&:hover': {
-                                                        borderColor: '#FE6B8B',
-                                                        color: '#FE6B8B',
-                                                        background: 'rgba(254, 107, 139, 0.1)',
-                                                        transform: 'scale(1.05)',
-                                                        transition: 'transform 0.2s',
-                                                    }
-                                                }}
-                                            >
-                                                View Code
-                                            </Button>
+                                            {project.demoLink && (
+                                                <Button
+                                                    size="medium"
+                                                    href={project.demoLink}
+                                                    target="_blank"
+                                                    variant="contained"
+                                                    startIcon={<Launch />}
+                                                    sx={{
+                                                        background: 'linear-gradient(45deg, #FF8E53 30%, #FE6B8B 90%)',
+                                                        color: 'white',
+                                                        px: 2,
+                                                        '&:hover': {
+                                                            background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+                                                            transform: 'scale(1.05)',
+                                                            transition: 'transform 0.2s',
+                                                        }
+                                                    }}
+                                                >
+                                                    Live Demo
+                                                </Button>
+                                            )}
+
+                                            {project.codeLink && (
+                                                <Button
+                                                    size="medium"
+                                                    href={project.codeLink}
+                                                    target="_blank"
+                                                    variant="outlined"
+                                                    startIcon={<GitHub />}
+                                                    sx={{
+                                                        borderColor: '#FF8E53',
+                                                        color: '#FF8E53',
+                                                        px: 2,
+                                                        '&:hover': {
+                                                            borderColor: '#FE6B8B',
+                                                            color: '#FE6B8B',
+                                                            background: 'rgba(254, 107, 139, 0.1)',
+                                                            transform: 'scale(1.05)',
+                                                            transition: 'transform 0.2s',
+                                                        }
+                                                    }}
+                                                >
+                                                    View Code
+                                                </Button>
+                                            )}
                                         </CardActions>
                                     </Card>
                                 </motion.div>
