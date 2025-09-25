@@ -9,25 +9,25 @@ const Experience = () => {
     {
       title: "PHP Developer",
       company: "Malta Digital Agency",
-      period: "2021 - present",
+      // period: "2021 - present",
       description: "Leading development of web applications using HTML, CSS, JS, PHP and MySQL",
     },
     {
       title: "React Developer",
       company: "Malta Digital Agency",
-      period: "2023 - present",
+      // period: "2023 - present",
       description: "Developing web applications using React, TypeScript, and Material-UI / Tailwind CSS components",
     },
     {
       title: "React Native Developer",
       company: "Malta Digital Agency",
-      period: "August 2024 - present",
+      // period: "August 2024 - present",
       description: "Developing a directory app using React Native, TypeScript, and Postgre SQL database",
     },
     {
       title: "QA Engineer",
       company: "SICAR Solutions",
-      period: "Abril 2024 - present",
+      // period: "Abril 2024 - present",
       description: "Manual testing to web aplication 'Sicar X' and testing Rest API with Postman and Rest Assured similar libraries",
     }
   ];
@@ -75,9 +75,9 @@ const Experience = () => {
                     <Typography color="text.secondary">
                       {exp.company}
                     </Typography>
-                    <Typography variant="caption" color="text.secondary">
+                    {/* <Typography variant="caption" color="text.secondary">
                       {exp.period}
-                    </Typography>
+                    </Typography> */}
                     <Typography variant="body2" sx={{ mt: 1 }}>
                       {exp.description}
                     </Typography>
