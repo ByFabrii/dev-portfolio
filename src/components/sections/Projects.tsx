@@ -5,6 +5,7 @@ import PokedexImage from '../../assets/pokedex.png'
 import GuitarLAImage from '../../assets/guitarLA.png'
 import proof from '../../assets/proof.png'
 import restaurant from '../../assets/restaurant.png'
+import encodeo from '../../assets/encodeo.png'
 import SectionTitle from '../common/SectionTitle'
 
 const projects = [
@@ -40,6 +41,14 @@ const projects = [
         demoLink: "https://rest-template-ruby.vercel.app/",
         codeLink: "https://github.com/ByFabrii/restTemplate"
     },
+    {
+        title: "Encodeo - Base64 Encoder/Decoder",
+        description: "Fast and secure Base64 encoder/decoder built with React and TypeScript. Features real-time validation, dual-mode interface (encode/decode), 100% client-side processing, and a modern dark UI with educational content about Base64 encoding.",
+        image: encodeo,
+        technologies: ["React", "TypeScript", "CSS3", "Vite"],
+        demoLink: "https://encodeo.fabrizziodev.com/",
+        codeLink: "https://github.com/ByFabrii/base64"
+    }
     // Add more projects here
 ]
 
