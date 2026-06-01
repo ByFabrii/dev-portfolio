@@ -7,7 +7,7 @@ import {
     SiFigma, SiVite, SiExpo, 
     SiPhp, SiOpenjdk, 
     SiTailwindcss, SiMui,          
-    SiSpringboot, SiAdobeillustrator,
+    SiSpringboot,
     SiCanva, SiLaravel, SiTestinglibrary, 
     SiKotlin, SiPostman, SiDocker
 } from 'react-icons/si'
