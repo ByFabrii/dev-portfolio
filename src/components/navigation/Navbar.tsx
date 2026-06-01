@@ -8,10 +8,10 @@ import { motion } from 'framer-motion';
 
 const navItems = [
   { name: 'Home', id: 'root' },
+  { name: 'About', id: 'about' },
+  { name: 'Experience', id: 'experience' },
   { name: 'Skills', id: 'skills' },
   { name: 'Projects', id: 'projects' },
-  { name: 'Experience', id: 'experience' },
-  { name: 'About', id: 'about' },
   { name: 'Contact', id: 'contact' },
 ];
 

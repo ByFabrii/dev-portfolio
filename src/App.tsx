@@ -25,10 +25,10 @@ function App() {
         <div className="min-h-screen bg-gradient-to-br from-gray-900 to-black">
           <Navbar />
           <Hero />
+          <About />
+          <Experience />
           <Skills />
           <Projects />
-          <Experience />
-          <About />
           <Contact />
           <ScrollToTop />
           <Footer />

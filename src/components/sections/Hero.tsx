@@ -1,44 +1,8 @@
 import { Box, Typography, Button } from '@mui/material'
 import { motion } from 'framer-motion'
-import { useState, useEffect } from 'react'
 import BackgroundCanvas from '../others/BackgroundCanvas'
 
-const roles = [
-  "Full Stack Developer",
-  "Web Designer",
-  "React Developer"
-]
-
 const Hero = () => {
-  const [roleIndex, setRoleIndex] = useState(0)
-  const [displayText, setDisplayText] = useState('')
-  const [isDeleting, setIsDeleting] = useState(false)
-
-  useEffect(() => {
-    const typingSpeed = isDeleting ? 40 : 100
-    const currentRole = roles[roleIndex]
-
-    if (!isDeleting && displayText === currentRole) {
-      setTimeout(() => setIsDeleting(true), 2000)
-      return
-    }
-
-    if (isDeleting && displayText === '') {
-      setIsDeleting(false)
-      setRoleIndex((prev) => (prev + 1) % roles.length)
-      return
-    }
-
-    const timeout = setTimeout(() => {
-      setDisplayText(prev =>
-        isDeleting
-          ? prev.slice(0, -1)
-          : currentRole.slice(0, prev.length + 1)
-      )
-    }, typingSpeed)
-
-    return () => clearTimeout(timeout)
-  }, [displayText, isDeleting, roleIndex])
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -68,9 +32,8 @@ const Hero = () => {
       }}
     >
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 0 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
       >
         <BackgroundCanvas maxWidth="md">
           <Typography
@@ -88,8 +51,9 @@ const Hero = () => {
             Fabrizzio Dev
           </Typography>
           <motion.div
-            animate={{ opacity: [0.5, 1] }}
-            transition={{ duration: 0.3 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
           >
             <Typography
               variant="h2"
@@ -97,12 +61,10 @@ const Hero = () => {
                 fontSize: { xs: '1.5rem', md: '2.5rem' },
                 color: 'text.secondary',
                 mb: 4,
-                textAlign: 'center',
-                minHeight: '3.5rem'
+                textAlign: 'center'
               }}
             >
-              {displayText}
-              <span className="cursor">|</span>
+              Full Stack Developer
             </Typography>
           </motion.div>
           <Box sx={{ display: 'flex', justifyContent: 'center', gap: 2 }}>

@@ -5,10 +5,11 @@ import {
     SiHtml5, SiCss3, SiNodedotjs,
     SiMysql, SiPostgresql, SiGit,
     SiFigma, SiVite, SiExpo, 
-    SiPhp, SiOpenjdk, SiBootstrap,  // Changed from SiJava to SiOpenjdk
-    SiTailwindcss, SiMui,           // Changed from SiMaterialui to SiMui
-    SiExpress, SiAdobeillustrator,
-    SiCanva
+    SiPhp, SiOpenjdk, 
+    SiTailwindcss, SiMui,          
+    SiSpringboot, SiAdobeillustrator,
+    SiCanva, SiLaravel, SiTestinglibrary, 
+    SiKotlin, SiPostman, SiDocker
 } from 'react-icons/si'
 import SectionTitle from '../common/SectionTitle';
 
@@ -28,12 +29,15 @@ import SectionTitle from '../common/SectionTitle';
     Vite: string;
     Expo: string;
     PHP: string;
-    AJAX: string;
+    Laravel: string;
     Java: string;
-    Bootstrap: string;
+    'Spring Boot': string;
     Tailwind: string;
     'Material UI': string;
-    Express: string;
+    Playwright: string;
+    Kotlin: string;
+    Postman: string;
+    Docker: string;
     Illustrator: string;
     Canva: string;
   }
@@ -53,12 +57,16 @@ import SectionTitle from '../common/SectionTitle';
     Vite: '#646CFF',
     Expo: '#000020',
     PHP: '#777BB4',
-    AJAX: '#4789C1',
+    Laravel: '#FF2D20',
     Java: '#007396',
-    Bootstrap: '#7952B3',
+    'Spring Boot': '#6DB33F',
     Tailwind: '#06B6D4',
     'Material UI': '#007FFF',
-    Express: '#F7DF1E',
+    'Testing Library': '#E5135A',
+    Playwright: '#2EAD33',
+    Kotlin: '#7F52FF',
+    Postman: '#FF6C37',
+    Docker: '#2496ED',
     Illustrator: '#FF9A00',
     Canva: '#00C4CC'
   }
@@ -71,37 +79,40 @@ import SectionTitle from '../common/SectionTitle';
         { name: "React Native", icon: <SiReact /> },
         { name: "TypeScript", icon: <SiTypescript /> },
         { name: "JavaScript", icon: <SiJavascript /> },
-        { name: "HTML5", icon: <SiHtml5 /> },
-        { name: "CSS3", icon: <SiCss3 /> },
-        { name: "Vite", icon: <SiVite /> }
-      ]
-    },
-    {
-      title: "Backend",
-      skills: [
-        { name: "Node.js", icon: <SiNodedotjs /> },
-        { name: "Express", icon: <SiExpress /> },
-        { name: "MySQL", icon: <SiMysql /> },
-        { name: "PostgreSQL", icon: <SiPostgresql /> },
-        { name: "PHP", icon: <SiPhp /> },
-        { name: "Java", icon: <SiOpenjdk /> },
-      ]
-    },
-    {
-      title: "Frameworks",
-      skills: [
-        { name: "Bootstrap", icon: <SiBootstrap /> },
         { name: "Tailwind", icon: <SiTailwindcss /> },
-        { name: "Material UI", icon: <SiMui /> },
-        { name: "Expo", icon: <SiExpo /> }
+        { name: "Material UI", icon: <SiMui /> }
+      ]
+    },
+    {
+      title: "Backend & DB",
+      skills: [
+        { name: "Java", icon: <SiOpenjdk /> },
+        { name: "Spring Boot", icon: <SiSpringboot /> },
+        { name: "PHP", icon: <SiPhp /> },
+        { name: "Laravel", icon: <SiLaravel /> },
+        { name: "Node.js", icon: <SiNodedotjs /> },
+        { name: "PostgreSQL", icon: <SiPostgresql /> }
+      ]
+    },
+    {
+      title: "QA & Infra",
+      skills: [
+        { name: "Testing Library", icon: <SiTestinglibrary /> },
+        { name: "Kotlin", icon: <SiKotlin /> },
+        { name: "Postman", icon: <SiPostman /> },
+        { name: "Docker", icon: <SiDocker /> },
+        { name: "Git", icon: <SiGit /> },
+        { name: "MySQL", icon: <SiMysql /> }
       ]
     },
     {
       title: "Tools & Design",
       skills: [
-        { name: "Git", icon: <SiGit /> },
+        { name: "Vite", icon: <SiVite /> },
+        { name: "Expo", icon: <SiExpo /> },
+        { name: "HTML5", icon: <SiHtml5 /> },
+        { name: "CSS3", icon: <SiCss3 /> },
         { name: "Figma", icon: <SiFigma /> },
-        { name: "Illustrator", icon: <SiAdobeillustrator /> },
         { name: "Canva", icon: <SiCanva /> }
       ]
     }
@@ -136,11 +147,13 @@ const Skills = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5, delay: index * 0.2 }}
                             viewport={{ once: true }}
+                            style={{ height: '100%' }} // Asegura que las tarjetas midan lo mismo
                             >
                                     <Paper
                                         elevation={3}
                                         sx={{
                                             p: 3,
+                                            height: '100%', // Hace que todas las tarjetas tengan la misma altura
                                             background: 'rgba(13, 13, 30, 0.7)',
                                             backdropFilter: 'blur(10px)',
                                             border: '1px solid rgba(255, 255, 255, 0.1)',
@@ -152,10 +165,13 @@ const Skills = () => {
                                         <Typography
                                             variant="h5"
                                             sx={{
-                                                mb: 1,
+                                                mb: 3, // Aumenté el margen para dar más respiro al título
                                                 background: 'linear-gradient(45deg, #FF8E53 30%, #FE6B8B 90%)',
                                                 WebkitBackgroundClip: 'text',
                                                 WebkitTextFillColor: 'transparent',
+                                                fontSize: '1.25rem', // Ajuste de tamaño para nombres de categoría más largos
+                                                fontWeight: 'bold',
+                                                textAlign: 'center'
                                             }}
                                         >
                                             {category.title}
@@ -169,14 +185,16 @@ const Skills = () => {
                                                 gridTemplateColumns: 'repeat(2, 1fr)',
                                                 gap: 2,
                                                 padding: 1,
+                                                flexGrow: 1 // Empuja el contenido para llenar el espacio
                                             }}
                                         >
                                             {category.skills.map((skill, skillIndex) => (
-                                                <Grid item xs={6} key={skill.name}>
+                                                <Grid item xs={12} key={skill.name} sx={{ padding: '0 !important' }}> {/* Reseteo de padding del item para usar solo el gap del grid CSS */}
                                                     <motion.div
                                                         initial={{ opacity: 0, x: -20 }}
-                                                        animate={{ opacity: 1, x: 0 }}
+                                                        whileInView={{ opacity: 1, x: 0 }}
                                                         transition={{ duration: 0.5, delay: index * 0.1 + skillIndex * 0.1 }}
+                                                        viewport={{ once: true }}
                                                     >
                                                         <Box
                                                             sx={{
@@ -202,7 +220,9 @@ const Skills = () => {
                                                                 variant="body2"
                                                                 sx={{
                                                                     textAlign: 'center',
-                                                                    color: 'text.secondary'
+                                                                    color: 'text.secondary',
+                                                                    mt: 0.5,
+                                                                    fontSize: '0.75rem' // Evita que los nombres largos rompan el diseño
                                                                 }}
                                                             >
                                                                 {skill.name}
